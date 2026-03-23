@@ -56,7 +56,7 @@ func _ready() -> void:
 	if err != OK:
 		push_error("Couldn't load game %s.\n" % Emulator.game_path, error_string(err))
 		return
-	_game.start(config)
+	_game.setup(config)
 	# Input Mapping Hack BEGIN # TODO: Remove
 	var buttons: Array[TouchButton] = [_up_btn, _down_btn, _left_btn, _right_btn, _a_btn, _b_btn, _menu_btn, _alt_btn]
 	var keys: Array[int] = [Inputs.UP, Inputs.DOWN, Inputs.LEFT, Inputs.RIGHT, Inputs.A, Inputs.B, Inputs.MENU, Inputs.ALT]
@@ -74,6 +74,7 @@ func _ready() -> void:
 		_input_manager._axis_1d_change[Inputs.WHEEL] = delta
 		_input_manager._axis_1d_states[Inputs.WHEEL] = _wheel_dial.angle)
 	# Input Mapping Hack END
+	_game.start()
 
 
 func _close_game() -> void:

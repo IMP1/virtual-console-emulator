@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func _setup_game_list() -> void:
 	var dir := UserSettings.game_directory
-	print(dir)
 	for game in DirAccess.get_directories_at(dir):
 		var path := dir + "/" + game
 		var config_path := path + "/game.cfg"
@@ -42,7 +41,7 @@ func _open_game(path: String) -> void:
 	if err != OK:
 		push_error("Couldn't load %s" % config_path)
 		return
-	print("Playing %s" % config.get_value("game", "name", "Untitled"))
+	print("Opening %s..." % config.get_value("game", "name", "Untitled"))
 	Emulator.game_path = path
 	get_tree().change_scene_to_packed(load("res://scenes/game.tscn"))
 

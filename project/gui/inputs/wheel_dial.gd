@@ -32,7 +32,6 @@ func _gui_input(event: InputEvent) -> void:
 			value_changed.emit(change_amount)
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
-		print(touch.position)
 		# TODO: Make sure this wasn't a drag
 		if _is_over_handle(touch.position) and not touch.pressed:
 			pass
