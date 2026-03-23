@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1wli671dmfq3"]
+
+[ext_resource type="Script" uid="uid://bfaaux6h0awve" path="res://gui/inputs/touch_button.gd" id="2_byusi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bqjq"]
+
+[node name="FaceButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 243.0
+offset_bottom = 153.0
+
+[node name="B" type="Control" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+script = ExtResource("2_byusi")
+stylebox_normal = SubResource("StyleBoxFlat_6bqjq")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="Label" type="Label" parent="B"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="A" type="Control" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("2_byusi")
+stylebox_normal = SubResource("StyleBoxFlat_6bqjq")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="Label" type="Label" parent="A"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1

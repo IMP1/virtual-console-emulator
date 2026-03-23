@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://jucmtp4oh6jg"]
+
+[ext_resource type="Script" uid="uid://b6l3ddu3f803u" path="res://gui/inputs/wheel_dial.gd" id="1_ynbxe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 128
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+corner_radius_bottom_left = 128
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
+bg_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 96
+corner_radius_top_right = 96
+corner_radius_bottom_right = 96
+corner_radius_bottom_left = 96
+corner_detail = 16
+
+[sub_resource type="Gradient" id="Gradient_ynbxe"]
+offsets = PackedFloat32Array(0, 0.9296482, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.21105528, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6huqy"]
+gradient = SubResource("Gradient_ynbxe")
+fill = 1
+fill_from = Vector2(0.6282051, 0.5982906)
+fill_to = Vector2(1, 0.54273504)
+
+[node name="WheelDial" type="Control"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 256.0
+script = ExtResource("1_ynbxe")
+
+[node name="Dial" type="Panel" parent="."]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 128)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tefeu")
+
+[node name="Dimple" type="Panel" parent="Dial"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -48.0
+offset_right = -4.0
+offset_bottom = 48.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6xl0")
+
+[node name="TextureRect" type="TextureRect" parent="Dial/Dimple"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6huqy")

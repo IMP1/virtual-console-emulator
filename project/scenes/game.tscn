@@ -1,0 +1,292 @@
+[gd_scene load_steps=15 format=3 uid="uid://0qcavnm1xayx"]
+
+[ext_resource type="Script" uid="uid://bhypuwqaaxpt7" path="res://scenes/game.gd" id="1_gee14"]
+[ext_resource type="PackedScene" uid="uid://h86q1irhf1dl" path="res://gui/inputs/menu_buttons.tscn" id="1_u5sy4"]
+[ext_resource type="Theme" uid="uid://cp3w0a4o338b4" path="res://resources/theme.tres" id="1_vtaks"]
+[ext_resource type="Script" uid="uid://gt6osr7v6qdy" path="res://play_mii/display.gd" id="2_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://c37u3edkfegah" path="res://gui/inputs/direction_pad.tscn" id="2_gee14"]
+[ext_resource type="Script" uid="uid://bc62yni4a7ptd" path="res://play_mii/game_container.gd" id="2_vtaks"]
+[ext_resource type="PackedScene" uid="uid://d1wli671dmfq3" path="res://gui/inputs/face_buttons.tscn" id="3_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cbxicc038vu1v" path="res://gui/inputs/mii_slot.tscn" id="4_vtaks"]
+[ext_resource type="Script" uid="uid://bisiktekianso" path="res://play_mii/input.gd" id="5_dinhu"]
+[ext_resource type="PackedScene" uid="uid://jucmtp4oh6jg" path="res://gui/inputs/wheel_dial.tscn" id="5_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dpajqwe3pk23k" path="res://assets/icons/menu_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="7_kvuet"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvpfn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgp6g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vtaks")
+script = ExtResource("1_gee14")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Contents" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopPadding" type="HSeparator" parent="Contents"]
+layout_mode = 2
+theme_override_constants/separation = 80
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kvpfn")
+
+[node name="ScreenArea" type="AspectRatioContainer" parent="Contents"]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 1.3333
+stretch_mode = 0
+alignment_vertical = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Contents/ScreenArea"]
+clip_contents = true
+layout_mode = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="GameContainer" type="SubViewport" parent="Contents/ScreenArea/SubViewportContainer"]
+unique_name_in_owner = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(360, 270)
+size_2d_override = Vector2i(320, 240)
+render_target_update_mode = 4
+script = ExtResource("2_vtaks")
+
+[node name="GameBackground" type="ColorRect" parent="Contents/ScreenArea/SubViewportContainer/GameContainer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Display" type="Control" parent="Contents/ScreenArea/SubViewportContainer/GameContainer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_0tnpc")
+
+[node name="Input" type="Node" parent="Contents/ScreenArea/SubViewportContainer/GameContainer"]
+script = ExtResource("5_dinhu")
+
+[node name="HSeparator" type="HSeparator" parent="Contents"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_sgp6g")
+
+[node name="InputGroups" type="Control" parent="Contents"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="MenuButtons" parent="Contents/InputGroups" instance=ExtResource("1_u5sy4")]
+layout_mode = 1
+offset_left = 386.0
+offset_top = 463.0
+offset_right = 660.0
+offset_bottom = 571.0
+
+[node name="Menu" parent="Contents/InputGroups/MenuButtons" index="0"]
+disabled = false
+toggle_mode = false
+button_pressed = false
+keep_pressed_outside = false
+
+[node name="DirectionPad" parent="Contents/InputGroups" instance=ExtResource("2_gee14")]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 467.0
+offset_right = 309.0
+offset_bottom = 759.0
+
+[node name="FaceButtons" parent="Contents/InputGroups" instance=ExtResource("3_0tnpc")]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 573.0
+offset_right = 668.0
+offset_bottom = 726.0
+
+[node name="MiiSlot" parent="Contents/InputGroups" instance=ExtResource("4_vtaks")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -277.0
+offset_right = 128.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="WheelDial" parent="Contents/InputGroups/MiiSlot" instance=ExtResource("5_kvpfn")]
+layout_mode = 1
+
+[node name="EmulatorMenu" type="Button" parent="Contents/InputGroups"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 128.0
+grow_horizontal = 2
+icon = ExtResource("7_kvuet")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="DebugInfo" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 630.0
+offset_right = 104.0
+offset_bottom = 962.0
+mouse_filter = 2
+
+[node name="Inputs" type="VBoxContainer" parent="DebugInfo"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Up" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "UP"
+
+[node name="Down" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "DOWN"
+
+[node name="Left" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "LEFT"
+
+[node name="Right" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "RIGHT"
+
+[node name="A" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "A"
+
+[node name="B" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "B"
+
+[node name="Menu" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "MENU"
+
+[node name="Alt" type="Label" parent="DebugInfo/Inputs"]
+layout_mode = 2
+text = "ALT"
+
+[node name="Modal" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="Modal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="EmulatorMenu" type="PanelContainer" parent="Modal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -212.0
+offset_right = 140.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_85g3d")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Modal/EmulatorMenu"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Modal/EmulatorMenu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="Modal/EmulatorMenu/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Modal/EmulatorMenu/ScrollContainer/MarginContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+flat = true
+
+[node name="Settings" type="Button" parent="Modal/EmulatorMenu/ScrollContainer/MarginContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+flat = true
+
+[node name="Reset" type="Button" parent="Modal/EmulatorMenu/ScrollContainer/MarginContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reset"
+flat = true
+
+[node name="Close" type="Button" parent="Modal/EmulatorMenu/ScrollContainer/MarginContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close Game"
+flat = true
+
+[node name="Exit" type="Button" parent="Modal/EmulatorMenu/ScrollContainer/MarginContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit Emulator"
+flat = true
+
+[editable path="Contents/InputGroups/MenuButtons"]
+[editable path="Contents/InputGroups/DirectionPad"]
+[editable path="Contents/InputGroups/FaceButtons"]

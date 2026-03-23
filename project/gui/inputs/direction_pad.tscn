@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://c37u3edkfegah"]
+
+[ext_resource type="Texture2D" uid="uid://cpnj6jx5ldtgs" path="res://assets/icons/arrow_circle_up_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="2_1wges"]
+[ext_resource type="Script" uid="uid://bfaaux6h0awve" path="res://gui/inputs/touch_button.gd" id="2_exlu6"]
+[ext_resource type="Texture2D" uid="uid://brpahoadq6ajc" path="res://assets/icons/arrow_circle_down_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="3_rjrgo"]
+[ext_resource type="Texture2D" uid="uid://uigw4hyncu3m" path="res://assets/icons/arrow_circle_left_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="4_igb4h"]
+[ext_resource type="Texture2D" uid="uid://v7vj0r85q4u2" path="res://assets/icons/arrow_circle_right_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="5_eq760"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exlu6"]
+
+[node name="DirectionPad" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 295.0
+offset_bottom = 292.0
+
+[node name="Up" type="Control" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_right = 41.5
+offset_bottom = 89.0
+grow_horizontal = 2
+script = ExtResource("2_exlu6")
+stylebox_normal = SubResource("StyleBoxFlat_exlu6")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="TextureRect" type="TextureRect" parent="Up"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1wges")
+
+[node name="Down" type="Control" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_exlu6")
+stylebox_normal = SubResource("StyleBoxFlat_exlu6")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="TextureRect" type="TextureRect" parent="Down"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rjrgo")
+
+[node name="Left" type="Control" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -48.0
+offset_right = 96.0
+offset_bottom = 48.0
+grow_vertical = 2
+script = ExtResource("2_exlu6")
+stylebox_normal = SubResource("StyleBoxFlat_exlu6")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="TextureRect" type="TextureRect" parent="Left"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_igb4h")
+
+[node name="Right" type="Control" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -44.5
+offset_bottom = 44.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("2_exlu6")
+stylebox_normal = SubResource("StyleBoxFlat_exlu6")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="TextureRect" type="TextureRect" parent="Right"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_eq760")

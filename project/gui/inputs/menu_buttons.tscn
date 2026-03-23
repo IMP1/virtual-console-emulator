@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://h86q1irhf1dl"]
+
+[ext_resource type="Script" uid="uid://bfaaux6h0awve" path="res://gui/inputs/touch_button.gd" id="2_416rh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofh3i"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="MenuButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 291.0
+offset_bottom = 108.0
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("2_416rh")
+disabled = null
+toggle_mode = null
+button_pressed = null
+keep_pressed_outside = null
+stylebox_normal = SubResource("StyleBoxFlat_ofh3i")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Alt" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_right = 123.0
+offset_bottom = 33.0
+grow_vertical = 2
+script = ExtResource("2_416rh")
+stylebox_normal = SubResource("StyleBoxFlat_ofh3i")
+metadata/_custom_type_script = "uid://bfaaux6h0awve"
+
+[node name="Label" type="Label" parent="Alt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Alt"
+horizontal_alignment = 1
+vertical_alignment = 1

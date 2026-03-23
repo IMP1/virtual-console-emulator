@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmiru3d7f4lm7"]
+
+[ext_resource type="Texture2D" uid="uid://dpajqwe3pk23k" path="res://assets/icons/menu_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="1_mfct4"]
+[ext_resource type="Script" uid="uid://ba1qhw0p4styc" path="res://scenes/landing.gd" id="1_yp7d7"]
+[ext_resource type="Texture2D" uid="uid://yr2nbuux2bi3" path="res://assets/icons/list_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="2_j5py0"]
+[ext_resource type="Texture2D" uid="uid://drsbftowp61x1" path="res://assets/icons/filter_list_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="2_usvfl"]
+[ext_resource type="Texture2D" uid="uid://dhs2jki7evbd0" path="res://assets/icons/radio_button_unchecked_48dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="3_usvfl"]
+[ext_resource type="Texture2D" uid="uid://d01padteio5cv" path="res://assets/icons/view_cozy_48dp_FFF_FILL1_wght400_GRAD0_opsz48.svg" id="3_yp7d7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b236o"]
+
+[node name="Landing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yp7d7")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 48
+text = "Play M// Emulator"
+
+[node name="Menu" type="Button" parent="PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("1_mfct4")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Games" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Games"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Games/MarginContainer"]
+layout_mode = 2
+
+[node name="GameCount" type="Label" parent="PanelContainer/VBoxContainer/Games/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "X games"
+
+[node name="Arrange" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Games/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="List" type="Button" parent="PanelContainer/VBoxContainer/Games/MarginContainer/HBoxContainer/Arrange"]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+icon = ExtResource("2_j5py0")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Grid" type="Button" parent="PanelContainer/VBoxContainer/Games/MarginContainer/HBoxContainer/Arrange"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+icon = ExtResource("3_yp7d7")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="FilterSort" type="Button" parent="PanelContainer/VBoxContainer/Games/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+icon = ExtResource("2_usvfl")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/Games"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Games/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GameList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Games/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/Games"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Games/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Games/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/Games/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("3_usvfl")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Footer" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 96
+theme_override_styles/separator = SubResource("StyleBoxEmpty_b236o")
